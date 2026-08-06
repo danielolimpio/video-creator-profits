@@ -196,8 +196,8 @@ export function HowSection({ t, locale }: { t: Dict; locale: Locale }) {
 }
 
 export function WorkSection({ t, locale }: { t: Dict; locale: Locale }) {
-  const [active, setActive] = useState(t.work.tabs[0].id);
-  const tab = t.work.tabs.find((x) => x.id === active) ?? t.work.tabs[0];
+  const [active, setActive] = useState(t.work.tabs[0]!.id);
+  const tab = t.work.tabs.find((x) => x.id === active) ?? t.work.tabs[0]!;
 
   return (
     <Section tone="surface">
@@ -292,7 +292,7 @@ export function PayoutsSection({ t }: { t: Dict }) {
       />
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {t.payouts.cards.map((c, i) => {
-          const Icon = PAYOUT_ICONS[i % PAYOUT_ICONS.length];
+          const Icon = PAYOUT_ICONS[i % PAYOUT_ICONS.length]!;
           return (
             <Card key={c.title}>
               <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-primary/20 bg-primary/10">
